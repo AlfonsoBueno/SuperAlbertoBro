@@ -634,18 +634,18 @@ class Game {
 
   drawMenu() {
     this.dim(0.45);
-    this.text("SUPER ALBERTO BRO", S.WIDTH / 2, 130, 34, "rgb(255,220,80)");
-    this.text("RUMBO A VER EL MUNDIAL", S.WIDTH / 2, 180, 44, "rgb(255,220,80)");
-    this.text("¡Hoy es la final de la Copa del Mundo y llegas tarde!", S.WIDTH / 2, 240, 19);
-    this.text("Ella hará lo imposible por impedir que la veas...", S.WIDTH / 2, 270, 19);
-    this.text("¡Llega al estadio antes del pitido inicial!", S.WIDTH / 2, 300, 19);
+    this.text("SUPER ALBERTO BRO", S.WIDTH / 2, 95, 48, "rgb(255,220,80)");
+    this.text("RUMBO A VER EL MUNDIAL", S.WIDTH / 2, 160, 62, "rgb(255,220,80)");
+    this.text("¡Hoy es la final de la Copa del Mundo y llegas tarde!", S.WIDTH / 2, 225, 27);
+    this.text("Ella hará lo imposible por impedir que la veas...", S.WIDTH / 2, 265, 27);
+    this.text("¡Llega al estadio antes del pitido inicial!", S.WIDTH / 2, 305, 27);
     this.text(IS_TOUCH ? "Toca la pantalla para empezar" : "Pulsa ENTER para empezar",
-              S.WIDTH / 2, 365, 26);
+              S.WIDTH / 2, 380, 36);
     if (!IS_TOUCH) {
-      this.text("Flechas/AD mover - Shift correr - Espacio saltar", S.WIDTH / 2, 420, 18);
-      this.text("X chutar balón - Esc pausa", S.WIDTH / 2, 450, 18);
+      this.text("Flechas/AD mover - Shift correr - Espacio saltar", S.WIDTH / 2, 445, 25);
+      this.text("X chutar balón - Esc pausa", S.WIDTH / 2, 483, 25);
     } else {
-      this.text("◀ ▶ mover  -  A saltar  -  B chutar", S.WIDTH / 2, 425, 18);
+      this.text("◀ ▶ mover  -  A saltar  -  B chutar", S.WIDTH / 2, 455, 25);
     }
   }
   drawPause() {
