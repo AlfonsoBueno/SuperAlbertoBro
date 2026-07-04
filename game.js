@@ -11,13 +11,15 @@ const S = {
   WALK_SPEED: 270, RUN_SPEED: 400, ACCEL: 2600, AIR_ACCEL: 1800,
   FRICTION: 2800, JUMP_SPEED: -850, JUMP_CUT: 0.45,
   COYOTE: 0.09, BUFFER: 0.12,
-  PLAYER_H: 78, ENEMY_H: 66, ENEMY_W: 38, ENEMY_SPEED: 90,
+  PLAYER_H: 92, ENEMY_H: 78, ENEMY_W: 38, ENEMY_SPEED: 90,
+  SPRITE_SCALE: 1.4,   // visual size boost; hitboxes stay as-is
+
   STOMP_BOUNCE: -430,
   LIVES: 3, COIN_SCORE: 100, ENEMY_SCORE: 200, BOSS_SCORE: 1000,
   INVINCIBLE: 1.5,
   BALL_SPEED: 560, BALL_GRAVITY: 1500, BALL_R: 9,
   START_BALLS: 3, MAX_BALLS: 6, PICKUP_BALLS: 2,
-  BOSS_H: 112, BOSS_HP: 3, BOSS_SPEED: 170, BOSS_RANGE: 520,
+  BOSS_H: 132, BOSS_HP: 3, BOSS_SPEED: 170, BOSS_RANGE: 520,
   TIME_LIMIT: 180, PLATFORM_SPEED: 85,
   ROWS: 15, COLS: 155, GROUND_ROW: 13,
 };
@@ -226,7 +228,8 @@ class Player {
 
   draw(ctx, cam) {
     if (this.invincible > 0 && Math.floor(this.invincible * 12) % 2 === 0) return;
-    const img = this.currentFrame(), d = scaledH(img, S.PLAYER_H);
+    const img = this.currentFrame(),
+      d = scaledH(img, S.PLAYER_H * S.SPRITE_SCALE);
     const cx = this.rect.x + this.rect.w / 2 - cam.x;
     const by = this.rect.y + this.rect.h - cam.y;
     ctx.save();
@@ -286,7 +289,7 @@ class Enemy {
   }
 
   draw(ctx, cam) {
-    const h = this.boss ? S.BOSS_H : S.ENEMY_H;
+    const h = (this.boss ? S.BOSS_H : S.ENEMY_H) * S.SPRITE_SCALE;
     const r = this.rect, cx = r.x + r.w / 2 - cam.x, by = r.y + r.h - cam.y;
     if (!this.alive) {
       const img = IMG.enemiga.idle, d = scaledH(img, h);
