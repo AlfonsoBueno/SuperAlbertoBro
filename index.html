@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Super Alberto Bro, rumbo a ver el Mundial</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%; height: 100%;
+    background: #101020;
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
+    -webkit-user-select: none; user-select: none;
+  }
+  #wrap {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #game { display: block; image-rendering: auto; }
+  /* Touch controls */
+  #touch-ui { position: fixed; inset: 0; pointer-events: none; }
+  .btn {
+    position: absolute;
+    pointer-events: auto;
+    width: 74px; height: 74px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.18);
+    border: 2px solid rgba(255,255,255,.45);
+    color: rgba(255,255,255,.9);
+    font: bold 28px 'Courier New', monospace;
+    display: flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn:active { background: rgba(255,255,255,.35); }
+  #btn-left  { left: max(18px, env(safe-area-inset-left)); bottom: 24px; }
+  #btn-right { left: calc(max(18px, env(safe-area-inset-left)) + 92px); bottom: 24px; }
+  #btn-jump  { right: max(18px, env(safe-area-inset-right)); bottom: 24px; }
+  #btn-kick  { right: calc(max(18px, env(safe-area-inset-right)) + 92px); bottom: 24px; }
+  #btn-pause { right: max(12px, env(safe-area-inset-right)); top: 10px;
+               width: 52px; height: 52px; font-size: 20px; }
+  #rotate {
+    position: fixed; inset: 0; z-index: 10;
+    background: #101020; color: #fff;
+    display: none; align-items: center; justify-content: center;
+    text-align: center;
+    font: bold 22px 'Courier New', monospace;
+  }
+  @media (orientation: portrait) and (pointer: coarse) {
+    #rotate { display: flex; }
+  }
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="game"></canvas></div>
+<div id="touch-ui">
+  <div class="btn" id="btn-left">&#9664;</div>
+  <div class="btn" id="btn-right">&#9654;</div>
+  <div class="btn" id="btn-kick">B</div>
+  <div class="btn" id="btn-jump">A</div>
+  <div class="btn" id="btn-pause">&#10074;&#10074;</div>
+</div>
+<div id="rotate">Gira el m&oacute;vil &#128241;&#8635;<br>(horizontal para jugar)</div>
+<script src="sprites.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
